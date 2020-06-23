@@ -1,0 +1,11 @@
+package org.astashonok.repository;
+
+import org.astashonok.model.Account;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+public interface AccountRepository extends JpaRepository<Account, Long> {
+
+    @Query("SELECT SUM(a.account) FROM Account a")
+    double getAccountsSum();
+}
