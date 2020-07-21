@@ -1,21 +1,14 @@
--- database creation 
-CREATE SCHEMA `accounts_users` DEFAULT CHARACTER SET utf8;
-
 -- table creation users
 CREATE TABLE users(
-	user_id		INT				NOT NULL	AUTO_INCREMENT,
-	name		VARCHAR(45)		NOT NULL,
-	surname		VARCHAR(45)		NOT NULL,
-
-	CONSTRAINT	pk_users_id	PRIMARY KEY	(user_id)
-)ENGINE = InnoDB;
+                      user_id	SERIAL PRIMARY KEY,
+                      name		CHARACTER VARYING(30)	NOT NULL,
+                      surname	CHARACTER VARYING(30)   NOT NULL
+);
 
 -- table creation accounts
 CREATE TABLE accounts(
-	account_id	INT				NOT NULL	AUTO_INCREMENT,
-	account		DECIMAL(10,2)	NOT NULL,
-	user_id		INT				NOT NULL,
-
-	CONSTRAINT	pk_accounts_id	PRIMARY KEY	(account_id),
-	CONSTRAINT	fk_user_id		FOREIGN KEY (user_id)	REFERENCES	users	(user_id)	ON DELETE CASCADE
-)ENGINE = InnoDB;
+                         account_id	SERIAL PRIMARY KEY,
+                         account	DECIMAL(10,2)	    NOT NULL,
+                         user_id	INTEGER				NOT NULL,
+                         CONSTRAINT	fk_user_id		FOREIGN KEY (user_id)	REFERENCES	users	(user_id)	ON DELETE CASCADE
+);
