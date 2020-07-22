@@ -1,5 +1,5 @@
 -- database creation 
-CREATE SCHEMA `accounts_users` DEFAULT CHARACTER SET utf8;
+CREATE SCHEMA `test_accounts_users` DEFAULT CHARACTER SET utf8;
 
 -- table creation users
 CREATE TABLE users(
